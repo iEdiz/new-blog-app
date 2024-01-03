@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./Links.module.css";
 import NavLink from "./navlink/NavLink";
 import Image from "next/image";
-// import { handleLogout } from "@/lib/action";
+import styles from "./Links.module.css";
+import { handleLogout } from "@/lib/action";
 
 const links = [
   {
@@ -27,10 +27,6 @@ const links = [
 
 const Links = ({ session }) => {
   const [open, setOpen] = useState(false);
-
-  // TEMPORARY
-  // const session = true;
-  // const isAdmin = true;
 
   return (
     <div className={styles.container}>
