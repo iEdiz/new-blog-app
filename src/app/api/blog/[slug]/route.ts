@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export const GET = async (request, { params }) => {
   const { slug } = params;
   try {
-    connectToDb();
+    await connectToDb();
 
     const post = await Post.findOne({ slug });
 
@@ -19,7 +19,7 @@ export const GET = async (request, { params }) => {
 export const DELETE = async (request, { params }) => {
   const { slug } = params;
   try {
-    connectToDb();
+    await connectToDb();
 
     await Post.deleteOne({ slug });
 

@@ -51,9 +51,31 @@ const postSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment",
+      },
+    ],
+  },
+  { timestamps: true }
+);
+
+const commentSchema = new mongoose.Schema(
+  {
+    desc: {
+      type: String,
+      required: true,
+    },
+    blogId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Post",
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
 export const User = mongoose?.models?.User || mongoose.model("User", userSchema);
 export const Post = mongoose?.models?.Post || mongoose.model("Post", postSchema);
+export const Comment = mongoose?.models?.Comment || mongoose.model("Comment", commentSchema);
