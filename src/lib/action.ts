@@ -8,7 +8,7 @@ import bcrypt from 'bcrypt'
 
 export const addPost = async (prevState, formData) => {
 
-  const { title, desc, slug, userId } = Object.fromEntries(formData);
+  const { title, desc, slug, userId, img } = Object.fromEntries(formData);
 
   try {
     await connectToDb();
@@ -17,10 +17,10 @@ export const addPost = async (prevState, formData) => {
       desc,
       slug,
       userId,
+      img,
     });
 
     await newPost.save();
-    console.log("saved to db");
     revalidatePath("/blog");
     revalidatePath("/admin");
   } catch (err) {
@@ -36,7 +36,6 @@ export const deletePost = async (formData) => {
     await connectToDb();
 
     await Post.findByIdAndDelete(id);
-    console.log("deleted from db");
     revalidatePath("/blog");
     revalidatePath("/admin");
   } catch (error) {
@@ -58,7 +57,6 @@ export const addUser = async (prevState, formData) => {
     });
 
     await newUser.save();
-    console.log("saved to db");
     revalidatePath("/admin");
   } catch (error) {
     console.log(error);
@@ -74,7 +72,6 @@ export const deleteUser = async (formData) => {
 
     await Post.deleteMany({ userId: id });
     await User.findByIdAndDelete(id);
-    console.log("deleted from db");
     revalidatePath("/admin");
   } catch (error) {
     console.log(error);
@@ -114,7 +111,6 @@ export const register = async (previousState, formData) => {
     });
 
     await newUser.save();
-    console.log("saved to db");
 
     return { success: true };
   } catch (err) {

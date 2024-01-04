@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Unkempt:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playball&display=swap");
+
 :root {
-  --bg: #0d0c22;
-  --bgSoft: #2d2b42;
-  --text: white;
-  --textSoft: #e5e5e5;
-  --btn: #3673fd;
+  --bg: #29292d;
+  --bgSoft: #5f5f67;
+  --text: #fffdec;
+  --textSoft: #edead0;
+  --btn: #e8b06c;
+  --mainFont: "Unkempt", cursive;
+  --secondFont: "Playball", cursive;
 }
 
 * {
@@ -15,7 +20,15 @@
 body {
   background-color: var(--bg);
   color: var(--text);
+  font-family: "Unkempt", cursive;
+}
 
+h1 {
+  font-family: var(--mainFont)
+}
+
+p {
+  font-family: var(--secondFont)
 }
 
 a {

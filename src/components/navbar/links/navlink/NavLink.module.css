@@ -1,12 +1,17 @@
-.container{
-    min-width: 100px;
-    padding: 10px;
-    border-radius: 20px;
-    font-weight: 500;
-    text-align: center;
-  }
-  
-  .active{
-    background-color: var(--text);
-    color: var(--bg);
-  }
+.container {
+  min-width: 100px;
+  padding: 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  text-align: center;
+  z-index: 999;
+}
+
+.active {
+  background-color: #e2904f;
+  color: var(--bg);
+  box-shadow: 0px 0px 5px 1.5px #7a4624;
+  z-index: 999;
+  transition: 0.4s;
+  font-weight: bold;
+}

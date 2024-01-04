@@ -33,7 +33,7 @@ const AboutPage = () => {
         </div>
       </div>
       <div className={styles.imgContainer}>
-        <Image src="/about.png" alt="About Image" fill className={styles.img} />
+        <Image src="/capygif.gif" alt="About Image" fill className={styles.img} />
       </div>
     </div>
   );
