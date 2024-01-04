@@ -7,7 +7,7 @@ import AdminUserForm from "@/components/adminUserForm/AdminUserForm";
 import { auth } from "@/lib/auth";
 
 const AdminPage = async () => {
-  const session = await auth();
+  const session = (await auth()) as { user?: { id?: string } };
 
   return (
     <div className={styles.container}>
@@ -19,7 +19,7 @@ const AdminPage = async () => {
         </div>
         <div className={styles.col}>
           <Suspense fallback={<div>Loading...</div>}>
-            <AdminPostForm userId={session.user.id} />
+            <AdminPostForm userId={session.user?.id} />
           </Suspense>
         </div>
       </div>

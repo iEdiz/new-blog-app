@@ -1,13 +1,12 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Post, User } from "./models";
+import { Post, User, Comment } from "./models";
 import { connectToDb } from "./utils";
 import { signIn, signOut } from "./auth";
-import bcrypt from 'bcrypt'
+import bcrypt from "bcrypt";
 
-export const addPost = async (prevState, formData) => {
-
+export const addPost = async (prevState: any, formData: Iterable<readonly [PropertyKey, string | number | symbol]>) => {
   const { title, desc, slug, userId, img } = Object.fromEntries(formData);
 
   try {
@@ -23,13 +22,30 @@ export const addPost = async (prevState, formData) => {
     await newPost.save();
     revalidatePath("/blog");
     revalidatePath("/admin");
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     return { error: "Something went wrong!" };
   }
 };
 
-export const deletePost = async (formData) => {
+export const addComment = async (formData: Iterable<readonly [PropertyKey, string | number | symbol]>) => {
+  const { desc, blogId } = Object.fromEntries(formData);
+
+  try {
+    await connectToDb();
+    const newComment = new Comment({
+      desc,
+      blogId,
+    });
+
+    await newComment.save();
+  } catch (error) {
+    console.log(error);
+    return { error: "Something went wrong!" };
+  }
+};
+
+export const deletePost = async (formData: Iterable<readonly [PropertyKey, string | number | symbol]>) => {
   const { id } = Object.fromEntries(formData);
 
   try {
@@ -44,7 +60,7 @@ export const deletePost = async (formData) => {
   }
 };
 
-export const addUser = async (prevState, formData) => {
+export const addUser = async (prevState: any, formData: Iterable<readonly [PropertyKey, string | number | symbol]>) => {
   const { username, email, password, img } = Object.fromEntries(formData);
 
   try {
@@ -64,7 +80,7 @@ export const addUser = async (prevState, formData) => {
   }
 };
 
-export const deleteUser = async (formData) => {
+export const deleteUser = async (formData: Iterable<readonly [PropertyKey, string | number | symbol]>) => {
   const { id } = Object.fromEntries(formData);
 
   try {
@@ -113,8 +129,8 @@ export const register = async (previousState, formData) => {
     await newUser.save();
 
     return { success: true };
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     return { error: "Something went wrong!" };
   }
 };
@@ -124,12 +140,12 @@ export const login = async (prevState, formData) => {
 
   try {
     await signIn("credentials", { username, password });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
 
-    if (err.message.includes("CredentialsSignin")) {
+    if (error.message.includes("CredentialsSignin")) {
       return { error: "Invalid username or password" };
     }
-    throw err;
+    throw error;
   }
 };

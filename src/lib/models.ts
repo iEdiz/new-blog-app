@@ -33,7 +33,6 @@ const postSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true,
     },
     desc: {
       type: String,
@@ -44,19 +43,12 @@ const postSchema = new mongoose.Schema(
     },
     userId: {
       type: String,
-      required: true,
     },
     slug: {
       type: String,
       required: true,
       unique: true,
     },
-    comments: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment",
-      },
-    ],
   },
   { timestamps: true }
 );

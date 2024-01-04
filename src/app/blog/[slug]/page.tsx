@@ -2,21 +2,44 @@ import Image from "next/image";
 import styles from "./SinglePost.module.css";
 import PostUser from "@/components/postUser/postUser";
 import { Suspense } from "react";
+// import CommentPostForm from "@/components/commentForm/CommentForm";
 
-const getData = async (slug) => {
+type Params = {
+  slug: string;
+};
+
+type Comment = {
+  id: number;
+  blogId: string;
+  desc: string;
+};
+
+const getData = async (slug: string) => {
   const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
-  
+
   if (!res.ok) {
-    console.log(res)
+    console.log(res);
     throw new Error("Something went wrong");
   }
 
   return res.json();
 };
 
-const SinglePostPage = async ({ params }) => {
+const getAllComments = async () => {
+  const res = await fetch(`http://localhost:3000/api/comments`);
+
+  if (!res.ok) {
+    console.log(res);
+    throw new Error("Something went wrong");
+  }
+
+  return res.json();
+};
+
+const SinglePostPage = async ({ params }: { params: Params }) => {
   const { slug } = params;
   const post = await getData(slug);
+  const comments = await getAllComments();
 
   return (
     <div className={styles.container}>
@@ -39,6 +62,20 @@ const SinglePostPage = async ({ params }) => {
           </div>
         </div>
         <div className={styles.content}>{post.desc}</div>
+        <div>
+          {comments.map((comment: Comment) => {
+            return (
+              <div key={comment.id}>
+                {comment.blogId === post._id && (
+                  <div>
+                    <span>{comment.desc}</span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          {/* <CommentPostForm blogId={post._id} userId={post.userId}/> */}
+        </div>
       </div>
     </div>
   );

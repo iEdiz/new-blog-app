@@ -1,10 +1,14 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const connection = {};
+type Connection = {
+  isConnected?: number;
+}
+
+const connection: Connection = {};
 
 export const connectToDb = async () => {
   try {
-    if(connection.isConnected) {
+    if (connection.isConnected) {
       console.log("Using existing connection");
       return;
     }
@@ -12,6 +16,6 @@ export const connectToDb = async () => {
     connection.isConnected = db.connections[0].readyState;
   } catch (error) {
     console.log(error);
-    throw new Error(error);
+    throw new Error('Failed to connect to DB');
   }
 };

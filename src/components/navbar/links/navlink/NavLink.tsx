@@ -4,7 +4,15 @@ import Link from "next/link";
 import styles from "./NavLink.module.css";
 import { usePathname } from "next/navigation";
 
-const NavLink = ({ item }) => {
+type NavItem = {
+  title: string;
+  path: string;
+}
+type NavLinkProps = {
+  item: NavItem;
+}
+
+const NavLink = ({ item }: NavLinkProps) => {
   const pathName = usePathname();
 
   return (
