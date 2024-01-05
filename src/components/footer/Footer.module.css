@@ -4,14 +4,27 @@
   align-items: center;
   justify-content: space-between;
   color: gray;
+  margin-top: 20px;
 }
 
-.logo {
-  font-weight: bold;
+.brands {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
-.text {
-  font-size: 12px;
+.brandImg {
+  filter: grayscale(1);
+}
+
+.brandImg:hover {
+  filter: grayscale(0);
+}
+
+.copyright {
+  font-size: 13px;
+  display: flex;
+  align-items: flex-end;
 }
 
 @media (max-width: 768px) {

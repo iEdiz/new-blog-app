@@ -4,17 +4,19 @@
 }
 
 .imgContainer {
-  flex: 2;
+  flex: 3;
   position: relative;
   height: calc(100vh - 200px);
 }
 
 .img {
   object-fit: cover;
+  border-radius: 20px;
+  border: 2px solid black;
 }
 
 .textContainer {
-  flex: 2;
+  flex: 4;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -22,6 +24,7 @@
 
 .title {
   font-size: 64px;
+  color: #e2904f;
 }
 
 .detail {
@@ -33,6 +36,9 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-family: var(--mainFont);
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .detailTitle {
@@ -45,7 +51,8 @@
 }
 
 .content {
-  font-size: 20px;
+  font-size: 24px;
+  font-family: var(--secondFont);
 }
 
 @media (max-width: 768px) {

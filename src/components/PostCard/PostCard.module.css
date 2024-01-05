@@ -47,6 +47,10 @@
   text-decoration: underline;
 }
 
+.link:hover {
+  color: var(--btn);
+}
+
 @media (max-width: 1024px) {
   .date {
     width: 80px;

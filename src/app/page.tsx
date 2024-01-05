@@ -6,10 +6,12 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
-        <h1 className={styles.title}>Creative Thoughts Agency.</h1>
+        <h1 className={styles.title}>
+          <span className={styles.singleLetter}>E</span>levate <span className={styles.singleLetter}>D</span>iscover <span className={styles.singleLetter}>B</span>lossom
+        </h1>
         <p className={styles.desc}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero blanditiis adipisci minima reiciendis a autem
-          assumenda dolore.
+          Welcome, kindred spirits, to the enchanting haven of the Capybara Monk Temple! Here, amid the whispers of
+          nature and the gentle sway of bamboo, you are embraced by the warm embrace of serenity and wisdom.
         </p>
         <div className={styles.buttons}>
           <Link href="/about" className={styles.button}>
@@ -19,12 +21,9 @@ const Home = () => {
             Contact
           </Link>
         </div>
-        <div className={styles.brands}>
-          <Image src="/brands.png" alt="" fill className={styles.brandImg} />
-        </div>
       </div>
       <div className={styles.imgContainer}>
-        <Image src="/capybara.png" alt="" fill className={styles.mainImg} />
+        <Image src="/capybara.png" alt="" width={700} height={700} className={styles.mainImg} />
       </div>
     </div>
   );

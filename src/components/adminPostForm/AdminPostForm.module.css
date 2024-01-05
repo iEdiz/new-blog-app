@@ -9,14 +9,22 @@
   text-align: center;
 }
 
-.container input,
-.container textarea,
-.container select {
+.input {
   padding: 20px;
-  background-color: var(--bgSoft);
-  border: none;
   border-radius: 5px;
-  color: var(--textSoft);
+  border: none;
+  outline: none;
+  font-family: var(--mainFont);
+  font-weight: bold;
+  background-color: var(--bgSoft);
+  color: white;
+  font-size: 20px;
+}
+
+.input::placeholder {
+  font-family: var(--mainFont);
+  color: rgb(195, 195, 195);
+  font-size: 15px;
 }
 
 .button {

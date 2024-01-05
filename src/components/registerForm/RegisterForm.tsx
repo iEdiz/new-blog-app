@@ -1,7 +1,7 @@
 "use client";
 
 import { register } from "@/lib/action";
-import styles from "./registerForm.module.css";
+import styles from './RegisterForm.module.css'
 import { useFormState } from "react-dom";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -18,18 +18,18 @@ const RegisterForm = () => {
 
   return (
     <form className={styles.form} action={formAction}>
-      <input type="text" placeholder="username" name="username" />
-      <input type="email" placeholder="email" name="email" />
-      <input type="password" placeholder="password" name="password" />
+      <input type="text" placeholder="Username..." name="username" />
+      <input type="email" placeholder="Email..." name="email" />
+      <input type="password" placeholder="Password..." name="password" />
       <input
         type="password"
-        placeholder="password again"
+        placeholder="Repeat password..."
         name="passwordRepeat"
       />
       <button>Register</button>
       {state?.error}
       <Link href="/login">
-        Have an account? <b>Login</b>
+        Have an account? <b className={styles.loginText}>Login</b>
       </Link>
     </form>
   );

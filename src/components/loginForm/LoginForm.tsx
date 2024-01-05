@@ -1,7 +1,7 @@
 "use client";
 
 import { login } from "@/lib/action";
-import styles from './LoginForm.module.css'
+import styles from "./LoginForm.module.css";
 import { useFormState } from "react-dom";
 import Link from "next/link";
 
@@ -15,7 +15,7 @@ const LoginForm = () => {
       <button>Login</button>
       {state?.error}
       <Link href="/register">
-        {"Don't have an account?"} <b>Register</b>
+        {"Don't have an account?"} <b className={styles.register}>Register</b>
       </Link>
     </form>
   );

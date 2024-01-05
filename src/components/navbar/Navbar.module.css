@@ -7,5 +7,5 @@
 
 .logoImage {
   border-radius: 50px;
-  opacity: 0.9;
+  filter: grayscale(0.4);
 }

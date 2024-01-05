@@ -6,7 +6,7 @@ import { connectToDb } from "./utils";
 import { signIn, signOut } from "./auth";
 import bcrypt from "bcrypt";
 
-export const addPost = async (prevState: any, formData: Iterable<readonly [PropertyKey, string | number | symbol]>) => {
+export const addPost = async (prevState, formData) => {
   const { title, desc, slug, userId, img } = Object.fromEntries(formData);
 
   try {
@@ -28,7 +28,7 @@ export const addPost = async (prevState: any, formData: Iterable<readonly [Prope
   }
 };
 
-export const addComment = async (formData: Iterable<readonly [PropertyKey, string | number | symbol]>) => {
+export const addComment = async (formData) => {
   const { desc, blogId } = Object.fromEntries(formData);
 
   try {
@@ -45,7 +45,7 @@ export const addComment = async (formData: Iterable<readonly [PropertyKey, strin
   }
 };
 
-export const deletePost = async (formData: Iterable<readonly [PropertyKey, string | number | symbol]>) => {
+export const deletePost = async (formData) => {
   const { id } = Object.fromEntries(formData);
 
   try {
@@ -60,7 +60,7 @@ export const deletePost = async (formData: Iterable<readonly [PropertyKey, strin
   }
 };
 
-export const addUser = async (prevState: any, formData: Iterable<readonly [PropertyKey, string | number | symbol]>) => {
+export const addUser = async (prevState) => {
   const { username, email, password, img } = Object.fromEntries(formData);
 
   try {
@@ -80,7 +80,7 @@ export const addUser = async (prevState: any, formData: Iterable<readonly [Prope
   }
 };
 
-export const deleteUser = async (formData: Iterable<readonly [PropertyKey, string | number | symbol]>) => {
+export const deleteUser = async (formData) => {
   const { id } = Object.fromEntries(formData);
 
   try {

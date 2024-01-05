@@ -22,3 +22,7 @@
   border: none;
   border-radius: 5px;
 }
+
+.loginText:hover {
+  color: var(--btn);
+}

@@ -3,7 +3,7 @@ import styles from "./PostUser.module.css";
 import Image from "next/image";
 
 type User = {
-  userId: number;
+  userId: string;
 };
 
 const PostUser = async ({ userId }: User) => {
