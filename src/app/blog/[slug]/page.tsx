@@ -68,7 +68,7 @@ const SinglePostPage = async ({ params }: { params: Params }) => {
               <div key={comment.id}>
                 {comment.blogId === post._id && (
                   <div>
-                    <span>{comment.desc}</span>
+                    <p className={styles.comment}>{comment.desc}</p>
                   </div>
                 )}
               </div>
