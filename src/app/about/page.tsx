@@ -30,7 +30,7 @@ const AboutPage = () => {
             <p>Inspiring stories</p>
           </div>
           <div className={styles.box}>
-            <h1>10 K+</h1>
+            <h1>8 K</h1>
             <p>Hours of Capy wisdom</p>
           </div>
         </div>
