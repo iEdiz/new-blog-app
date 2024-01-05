@@ -13,7 +13,7 @@
   border-radius: 5px;
 }
 
-.form button {
+.button {
   padding: 20px;
   cursor: pointer;
   background-color: var(--btn);
@@ -21,6 +21,11 @@
   font-weight: bold;
   border: none;
   border-radius: 5px;
+}
+
+.button:hover {
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
 .register:hover {
