@@ -8,7 +8,13 @@ const PostCard = ({ post }) => {
       <div className={styles.top}>
         {post.img && (
           <div className={styles.imgContainer}>
-            <Image src={post.img} alt="" fill className={styles.img} />
+            <Image
+              src={post.img}
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className={styles.img}
+            />
           </div>
         )}
         <span className={styles.date}>{post.createdAt?.toString().slice(0, 10)}</span>

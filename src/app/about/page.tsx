@@ -36,7 +36,13 @@ const AboutPage = () => {
         </div>
       </div>
       <div className={styles.imgContainer}>
-        <Image src="/capygif.gif" alt="About Image" fill className={styles.img} />
+        <Image
+          src="/capygif.gif"
+          alt="About Image"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className={styles.img}
+        />
       </div>
     </div>
   );
